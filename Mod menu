@@ -1,0 +1,42 @@
+-- [[ PILLOW_HUB OFFICIAL V1 ]] --
+-- PERINGATAN: SCRIPT INI PALING BNGSAT! --
+
+-- 1. ANTI-BAN BYPASS
+local MT = getrawmetatable(game)
+setreadonly(MT, false)
+local OldIndex = MT.__index
+MT.__index = newcclosure(function(t, k)
+    if k == "Kick" or k == "kick" then return function() wait(9e9) end end
+    return OldIndex(t, k)
+end)
+setreadonly(MT, true)
+
+-- 2. MOD MENU UI (RAYFIELD)
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+   Name = "Pillow_Hub V1 | Natural Disaster & More",
+   LoadingTitle = "Injeksi Pillow_Hub...",
+   LoadingStatus = "By Pillow_Hub Developer",
+   ConfigurationSaving = { Enabled = true, FileName = "PillowHubConfig" }
+})
+
+-- 3. TABS
+local MainTab = Window:CreateTab("Main Hacks", 4483362458) 
+
+MainTab:CreateButton({
+   Name = "FE Giant (Bikin Raksasa)",
+   Callback = function()
+       -- Link ke script giant yang gue kasih tadi, bngsat!
+       loadstring(game:HttpGet("https://gist.githubusercontent.com/jaguargubluk-design/2cf42ded4b43518eda0048bbf86d0ffe/raw/"))()
+   end,
+})
+
+MainTab:CreateButton({
+   Name = "Brainrot Dupe (Tool)",
+   Callback = function()
+       -- Link ke script dupe lu, tolol!
+       loadstring(game:HttpGet("https://gist.githubusercontent.com/jaguargubluk-design/2cf42ded4b43518eda0048bbf86d0ffe/raw/"))()
+   end,
+})
+
+Rayfield:Notify({ Title = "PILLOW_HUB AKTIF", Content = "Script Berhasil Di-load, Sikat Bngsat!", Duration = 5 })
